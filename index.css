@@ -1,0 +1,118 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inconsolata', monospace;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: grid;
+    height: 100vh;
+    max-width: 2000px;
+    grid-template-columns: 1fr 1fr; /* Creates two equal-width columns */
+    gap: 70px; /* Adds some space between grid items */
+    justify-items: center; /* Horizontally centers items in their cells */
+    align-items: center; /* Vertically centers items in their cells */
+}
+
+.selection-container {
+    display: flex; /* Aligns items in a row */
+    justify-content: center; /* Centers items horizontally */
+    align-items: center; /* Centers items vertically */
+    gap: 20px; /* Adds some space between items */
+    flex-direction: column; /* Aligns items vertically */
+
+}
+
+#colorPicker {
+
+    border: none;
+    width: 3em;
+    margin-right: 1em;
+    cursor: pointer;
+}
+
+#colorScheme {
+    border: none;
+    background-color: rgb(229, 229, 229);
+    padding: 10px 20px; /* Add some padding */
+    cursor: pointer; /* Change the cursor to a pointer when hovering over the selector */
+    outline: none; /* Remove the outline */
+    font-size: 0.8em; /* Increase the font size */
+}
+
+#colorScheme:hover {
+    background-color: rgb(204, 204, 204); /* Darken the background color when hovering over the selector */
+}
+
+#getColorScheme {
+    border: none;
+    background-color: #7e7e7e; /* Green background */
+    color: white; /* White text */
+    padding: 0.5em 1em; /* Add some padding */
+    text-align: center; /* Center the text */
+    text-decoration: none; /* Remove the underline */
+    display: inline-block;
+    margin: 1em;
+    cursor: pointer; /* Change the cursor to a pointer when hovering over the button */
+    border-radius: 4px; /* Round the corners */
+}
+
+#getColorScheme:active {
+    scale: 0.90;
+    background-color: #4e4e4e; /* Darken the background color when hovering over the button */
+}
+
+.card {
+    position: relative;
+
+    width: 25em;
+    height: 12.5em;
+
+    margin-bottom: -4.166666666666667em;
+    transition: all 0.3s ease;
+
+    background: #ffffff;
+
+    border-radius: 20px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+                0 10px 10px rgba(0,0,0,0.22);
+    cursor: pointer;
+    
+}
+
+.card:hover {
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4), 
+                0 15px 12px rgba(0,0,0,0.22);
+
+    transform: scale(1.05);
+
+    z-index: 1; /* Add this line to place the card above all other elements */
+    background-color: rgba(0, 0, 0, 0.1); /* Add this line to dim the background */
+    transition: all 0.5s ease;
+
+}
+
+.card:active {
+    transform: scale(0.98);
+    transition: all 0.1s ease;
+}
+
+.card:nth-child(1) { background: #621204; }
+.card:nth-child(2) { background: #941B05; }
+.card:nth-child(3) { background: #C62305; }
+.card:nth-child(4) { background: #F92B06; }
+.card:nth-child(5) { background: #FC5436; }
+
+.card::after {
+    content: attr(data-color);
+    color: white;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 0.875em;
+}
+
