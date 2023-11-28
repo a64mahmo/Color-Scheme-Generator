@@ -53,8 +53,13 @@ getColorSchemeBtn.addEventListener('click', e => {
 
 });
 
+
+
 // Add an event listener to each card. This will copy the color to the clipboard whenever the user clicks a card
 cards.forEach(card => {
+    // Get the "copied" indicator for this card
+    const copiedIndicator = card.querySelector('.copied-indicator');
+
     card.addEventListener('click', e => {
         // Get the data-color value of the clicked card
         let color = e.target.getAttribute('data-color');
@@ -62,6 +67,14 @@ cards.forEach(card => {
         // Copy the color to the clipboard
         navigator.clipboard.writeText(color).then(() => {
             console.log(`Copied ${color} to clipboard`);
+
+            // Show the "copied" indicator
+            copiedIndicator.style.display = 'block';
+
+            // Hide the "copied" indicator after 2 seconds
+            setTimeout(() => {
+                copiedIndicator.style.display = 'none';
+            }, 2000);
         })
     });
 });
