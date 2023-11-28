@@ -33,3 +33,5 @@ To set up the project:
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+You can check out the webiste here: comforting-semifreddo-258a78.netlify.app
